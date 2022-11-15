@@ -19,7 +19,7 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(setUser(""));
+    dispatch(setUser({ email, password }));
     setEmail("");
     setPassword("");
     navigate("/");
