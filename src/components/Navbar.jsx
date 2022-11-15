@@ -31,7 +31,7 @@ export default function Navbar() {
             sx={{ flexGrow: 1, cursor: "pointer" }}
             onClick={() => navigate("/")}
           >
-            breaking news
+            BREAKİNG NEWS
           </Typography>
           {user?.email && (
             <Button color="inherit" onClick={handleLogout}>
