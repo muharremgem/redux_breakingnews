@@ -8,9 +8,10 @@ import { CardMedia } from "@mui/material";
 import { getNews } from "../features/newsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import loadingGif from "../assets/loading.gif";
 
 const News = () => {
-  const { newsList } = useSelector((state) => state.news);
+  const { newsList, loading } = useSelector((state) => state.news);
 
   const dispatch = useDispatch();
 
@@ -21,38 +22,41 @@ const News = () => {
   return (
     <>
       <h1>NEWS</h1>
-      <Box
-        xs={{ d: "flex" }}
-        display="flex"
-        alignItems="center"
-        justifyContent="space-evenly"
-        flexWrap="wrap"
-      >
-        {newsList?.map((item, index) => (
-          <Card sx={{ maxWidth: 345, m: 5, maxHeight: 600 }} key={index}>
-            <CardMedia
-              component="img"
-              height="250"
-              image={item?.urlToImage}
-              alt="img"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {item?.title}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {item?.content}
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">Share</Button>
-              <Button size="small" href={item?.url} target="_blank">
-                Detail
-              </Button>
-            </CardActions>
-          </Card>
-        ))}
-      </Box>
+      {loading && <img src={loadingGif} />}
+      {!loading && (
+        <Box
+          xs={{ d: "flex" }}
+          display="flex"
+          alignItems="center"
+          justifyContent="space-evenly"
+          flexWrap="wrap"
+        >
+          {newsList?.map((item, index) => (
+            <Card sx={{ maxWidth: 345, m: 5, maxHeight: 600 }} key={index}>
+              <CardMedia
+                component="img"
+                height="250"
+                image={item?.urlToImage}
+                alt="img"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {item?.title}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {item?.content}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small">Share</Button>
+                <Button size="small" href={item?.url} target="_blank">
+                  Detail
+                </Button>
+              </CardActions>
+            </Card>
+          ))}
+        </Box>
+      )}
     </>
   );
 };
