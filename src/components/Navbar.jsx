@@ -32,12 +32,12 @@ export default function Navbar() {
           >
             breaking news
           </Typography>
-          {user && (
+          {user?.email && (
             <Button color="inherit" onClick={handleLogout}>
               Logout
             </Button>
           )}
-          {!user && (
+          {!user?.email && (
             <Button color="inherit" onClick={() => navigate("/login")}>
               Login
             </Button>
