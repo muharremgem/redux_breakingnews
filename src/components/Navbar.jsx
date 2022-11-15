@@ -18,7 +18,7 @@ export default function Navbar() {
             sx={{ flexGrow: 1, cursor: "pointer" }}
             onClick={() => navigate("/")}
           >
-            Clarusway News
+            breaking news
           </Typography>
 
           <Button color="inherit">Login</Button>
