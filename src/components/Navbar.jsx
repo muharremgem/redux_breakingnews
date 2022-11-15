@@ -12,6 +12,7 @@ export default function Navbar() {
   const navigate = useNavigate();
 
   //!consuming yapıldı
+
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
@@ -22,7 +23,7 @@ export default function Navbar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" color="secondary">
+      <AppBar position="static" color="warning">
         <Toolbar>
           <Typography
             variant="h6"

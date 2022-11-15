@@ -73,7 +73,7 @@ export default function Login() {
             type="submit"
             fullWidth
             variant="contained"
-            color="secondary"
+            color="warning"
             sx={{ mt: 3, mb: 2 }}
           >
             Sign In
@@ -83,8 +83,12 @@ export default function Login() {
 
       <Typography variant="body2" color="text.secondary" align="center">
         {"Copyright © "}
-        <Link color="inherit" href="https://www.clarusway.com/">
-          Clarusway
+        <Link
+          color="inherit"
+          href="https://www.muharremgem.com/"
+          target="_blank"
+        >
+          Muharrem GEM
         </Link>{" "}
         {new Date().getFullYear()}
         {"."}
